@@ -15,8 +15,10 @@ app.set('views', path.join(__dirname, 'views'));
 //se configura el motor de vistas
 app.set('view engine', 'ejs');
 //conexión a la Base de Datos
-mongoose.connect('mongodb+srv://Francia:7DNb-a.4qHmR8!8@cluster0.9ajsz.mongodb.net/lecturas?retryWrites=true&w=majority')
+
+mongoose.connect('mongodb+srv://Francia:Francia002608@cluster0.73nym.mongodb.net/lecturasf?retryWrites=true&w=majority')
 .then(bd => console.log('La Base de Datos se conectó')).catch(err => console.log(err));
+
 
 //middleware
 app.use(log('dev'));
