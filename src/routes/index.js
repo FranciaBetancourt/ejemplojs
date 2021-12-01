@@ -1,10 +1,20 @@
 const express = require ('express');
 const router = express.Router();
-const model = require('../models/favoritasf')();
+const model = require('../models/libros')();
 
-router.get('/', (req,res) => {
+const Valor = require('../models/libros');
+
+router.get('/', async (req, res) => {
+    const libros = await Valor.find();
+    console.log(libros);
     res.render('index.ejs', {
-        nombre:'Francia'
-    })
+        libros
+    });
+});
+
+router.post('/add', async (req, res) => {
+    const valor = new Valor(req.body);
+    await valor.save();
+    res.redirect('/');
 });
 module.exports = router;

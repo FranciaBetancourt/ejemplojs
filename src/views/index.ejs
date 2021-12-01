@@ -10,9 +10,13 @@
 
 </head>
 <body>
+    
     <nav class="navbar navbar-dark bg-dark">
         <a href="/" class="navbar-brand">Lecturas</a>
     </nav>
+
+
+      <br>  
     <div class="container">
         <div class="col-md-5">
             <div class="card">
@@ -25,18 +29,42 @@
                             <input type="text" name="nombre_autor" placeholder="Autor" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="editorial" placeholder="Editorial" class="form-control">
-                        </div>
-                        <div class="form-group">
                             <input type="text" name="genero" placeholder="Género" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="editorial" placeholder="Editorial" class="form-control">
+                        </div>
+                        <br>
                         <button class="btn btn-primary">Registrar</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <p>Párrafo</p>
+        <br>
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del libro</th>
+                        <th>Autor</th>
+                        <th>Género</th>
+                        <th>Editorial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < libros.length; i++){ %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= libros[i].nombre_libro %></td>
+                            <td><%= libros[i].nombre_autor %></td>
+                            <td><%= libros[i].genero %></td>
+                            <td><%= libros[i].editorial %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+
+                </table>
         </div>
     </div>
 </body>

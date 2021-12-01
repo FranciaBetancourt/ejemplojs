@@ -3,8 +3,9 @@ const log = require('morgan');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-const indexRoutes = require('./routes/index.js');
 const mongoose = require('mongoose');
+
+const indexRoutes = require('./routes/index.js');
 
 // escuchar al servidor
 app.set('port',process.env.PORT || 3000);
@@ -16,8 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //conexión a la Base de Datos
 
-mongoose.connect('mongodb+srv://Francia:Francia002608@cluster0.73nym.mongodb.net/lecturasf?retryWrites=true&w=majority')
-.then(bd => console.log('La Base de Datos se conectó')).catch(err => console.log(err));
+mongoose.connect('mongodb+srv://Francia:rIpK3SXYZ6NzdAYL@cluster0.73nym.mongodb.net/BDlecturas?retryWrites=true&w=majority')
+.then(bd => console.log('La base de datos se conectó')).catch(err => console.log(err));
 
 
 //middleware
@@ -28,5 +29,5 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', indexRoutes);
 
 app.listen(app.get('port'),() =>{
-    console.log('Servidor en el puerto ', app.get('port'))
+    console.log('Servidor funcionando en el puerto ', app.get('port'))
 });
